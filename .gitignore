@@ -1,0 +1,4 @@
+.venv
+links
+uv.lock
+setup.md
