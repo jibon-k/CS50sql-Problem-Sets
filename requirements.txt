@@ -1,0 +1,7 @@
+ipython==9.5.0
+ipython-sql==0.3.9
+sqlalchemy==1.4.54
+prettytable==2.5.0
+numpy==2.3.3
+pandas==2.3.2
+ipykernel
