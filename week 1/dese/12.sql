@@ -5,14 +5,15 @@ SELECT
 FROM "districts"
 JOIN "expenditures" ON "districts"."id" = "expenditures"."district_id"
 JOIN "staff_evaluations" ON "districts"."id" = "staff_evaluations"."district_id"
-WHERE "state" = 'MA'
-AND "per_pupil_expenditure" > (
+WHERE "districts"."state" = 'MA'
+AND "districts"."type" = 'Public School District'
+AND "expenditures"."per_pupil_expenditure" > (
     SELECT AVG("per_pupil_expenditure") 
     FROM "expenditures"
 )
-AND "exemplary" > (
+AND "staff_evaluations"."exemplary" > (
     SELECT AVG("exemplary") 
     FROM "staff_evaluations"
     WHERE "exemplary" IS NOT NULL
 )
-ORDER BY "exemplary" DESC, "per_pupil_expenditure" DESC;
+ORDER BY "staff_evaluations"."exemplary" DESC, "expenditures"."per_pupil_expenditure" DESC;

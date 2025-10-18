@@ -1,5 +1,7 @@
-SELECT "name", "per_pupil_expenditure"
+SELECT "districts"."name", "expenditures"."per_pupil_expenditure"
 FROM "districts"
 JOIN "expenditures" ON "districts"."id" = "expenditures"."district_id"
-ORDER BY "per_pupil_expenditure" DESC
+WHERE "districts"."state" = 'MA'
+AND "districts"."type" = 'Public School District'
+ORDER BY "expenditures"."per_pupil_expenditure" DESC
 LIMIT 10;
