@@ -22,6 +22,8 @@ CREATE TABLE IF NOT EXISTS "temp" (
     "long" NUMERIC
 );
 
+.import --csv --skip 1 meteorites.csv temp
+
 DELETE FROM "temp"
 WHERE "nametype" = 'Relict';
 
@@ -41,7 +43,7 @@ SET
 
 INSERT INTO "meteorites" ("name", "class", "mass", "discovery", "year", "lat", "long")
 SELECT "name", "class", "mass", "discovery", "year", "lat", "long"
-FROM (SELECT * FROM "temp"  
+FROM (SELECT * FROM "temp"
     ORDER BY "year" ASC, "name" ASC
 );
 
