@@ -8,5 +8,6 @@ JOIN(
     SELECT "listing_id", count("id") AS "days_vacant" 
     FROM "availabilities"
     WHERE "date" BETWEEN '2023-06-01' AND '2023-06-30'
+    AND "available" = 'TRUE'
     GROUP BY "listing_id") AS "vacant_count"
 ON "listings"."id" = "vacant_count"."listing_id";
