@@ -1,4 +1,4 @@
-CREATE VIEW "one" AS
+CREATE VIEW "one_bedrooms" AS
 SELECT
     "id",
     "property_type",
