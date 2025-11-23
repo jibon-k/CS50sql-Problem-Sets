@@ -1,4 +1,5 @@
 -- ---------- SAMPLE DATA ----------
+PRAGMA foreign_keys = ON;
 -- Suppliers
 INSERT INTO "suppliers" ("id", "name", "contact_email") VALUES
 (1, 'ToyCo Suppliers', 'contact@toyco.example'),
